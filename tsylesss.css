@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lohany {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 80px;
+    background: rgba(98, 49, 148, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logoko {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+}
+
+.navnaka a {
+font-size: 18px;
+color: #fff;
+font-weight: 500;
+margin-left: 30px;
+
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.bg-slide, .bg-slide .circle,
+.bg-slide .circle img, 
+.circle-darktransp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+.bg-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-slide .circle {
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+
+
+.bg-slide .circle.large, 
+.circle-darktransp {
+    clip-path: circle(50% at 50% 50%);
+}
+
+.bg-slide .circle.small {
+    clip-path: circle(30% at 50% 50%);
+    z-index: 12;
+}
+
+.bg-slide .circle img {
+    object-fit: cover;
+    transform: rotate(0deg) scale(4);
+    opacity: 0;
+    transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    
+}
+
+.bg-slide.raika .circle img {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+}
+
+.bg-slide.after.raika .circle img {
+    transform: rotate(720deg) scale(4);
+    opacity: 0;
+}
+
+.bg-slide.raika .circle.bg img,
+.bg-slide.after.raika .circle.bg img  {
+    transition-delay: .8s;
+}
+
+
+.bg-slide.raika .circle.large img,
+.bg-slide.after.raika .circle.large img  {
+    transition-delay: .7s;
+}
+
+.bg-slide.raika .circle.circle.small img,
+.bg-slide.after.raika .circle.small img  {
+    transition-delay: .3s;
+}
+
+.circle-darktransp {
+    background: rgba(0, 0, 0, .2);
+}
+
+.bg-slide .content-text {
+    position: absolute;
+    z-index: 100; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.bg-slide.raika .content-text {
+    z-index: 101;
+}
+
+
+.content-text .place, 
+.content-text .country {
+    background: rgba(46, 139, 86, 0);
+    overflow: hidden;
+}
+
+
+
+.content-text .country {
+    margin-top: 60px;
+
+}
+
+.content-text .place h1, 
+.content-text .country h2 {
+   color: #bce7d0;
+   text-transform: uppercase; 
+   text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                  1px 1px 0 #000;
+   line-height: 1;
+   opacity: 0;
+   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.335, 1);
+   transition-delay: 0.8s;
+}
+
+.content-text .place h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin-right: -5px;
+    background: rgba(250, 128, 114, 0);
+    transform: translateY(100%);
+
+}
+
+.content-text .country h2 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin-right: -5px;
+    text-align: center;
+    background: rgba(46, 139, 86, 0);
+    transform: translateY(-100%);
+
+}
+
+.bg-slide.raika .content-text .place h1, 
+.bg-slide.raika .content-text .country h2 {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+.bg-slide.after-raika .content-text .place h1 {
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+.bg-slide.after-raika .content-text .country h2 {
+    transform: translateY(100%);
+    opacity: 1;
+}
+
+.line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    width: 500px;
+    height: 2px;
+    background: #fff;
+    z-index: 100;
+}
+
+.rotate-btn {
+    position: absolute;
+    width: 60px;
+    bottom: 60px;
+    right: 60px;
+    height: 60px;
+    background: rgb(6, 216, 6);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.rotate-btn.raika {
+    transform: rotate(360deg);
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: 0.2s;
+}
+
+.rotate-btn i {
+    font-size: 40px;
+    color: #fff;
+
+}
+
+.bg-slide.raika .circle {
+    z-index: 100;
+}
+
+
+@media (max-width: 610px) {
+
+    .lohany {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 80px;
+    background: rgba(116, 25, 207, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .logoko {
+    font-size: 20px;
+    position: relative;
+    right: 50px;
+    color: #ff00b3;
+    text-align: center;
+    font-weight: 700;
+    z-index: 100;
+}
+
+.navnaka a {
+position: relative;
+font-size: 15px;
+color: #fff;
+font-weight: 500;
+margin-left: 5px;
+left: 60px;
+
+
+}
+
+.content-text .place h1 {
+    font-size: 25px;
+    font-weight: 400;
+    position: relative;
+    top: 3px;
+    color: aqua;
+}
+
+.content-text .country h2 {
+    font-size: 20px;
+    color: aqua;
+    font-weight: 400;
+    position: relative;
+    top: 0px;
+
+
+}
+
+.line {
+    position: absolute;
+    left: 50%;
+    top: 48.3%;
+    transform: translate(-50%);
+    width: 260px;
+    height: 2px;
+    background: #fff;
+    z-index: 100;
+}
+
+
+
+    
+}
+
